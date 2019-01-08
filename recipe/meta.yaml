@@ -1,4 +1,4 @@
-{% set version = "0.4.1" %}
+{% set version = "0.4.3" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/lemon_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/lemon/lemon_{{ version }}.tar.gz
-  sha256: 80d816885fff7b615b25b37a31435544e3a9c075e2e7ac77a6b76f715e17f99b
+  sha256: fcaea69fc3b77e0287e4373878580a37f5bfc457d9df976d239883f0dc2a5673
 
 build:
   noarch: generic
