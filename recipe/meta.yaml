@@ -1,5 +1,4 @@
-{% set version = "0.4.3" %}
-
+{% set version = '0.4.4' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,39 +7,46 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: lemon_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/lemon_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/lemon/lemon_{{ version }}.tar.gz
-  sha256: fcaea69fc3b77e0287e4373878580a37f5bfc457d9df976d239883f0dc2a5673
+    - {{ cran_mirror }}/src/contrib/lemon_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/lemon/lemon_{{ version }}.tar.gz
+  sha256: a56d5eeab805893dbfe00a3f7eefc93eca40ce305022db358f49267022c73055
 
 build:
+  merge_build_host: True  # [win]
+  number: 0
   noarch: generic
-  number: 1001
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
-    - r-ggplot2 >=2.2.0
+    - r-ggplot2 >=3.3.0
     - r-gridextra
     - r-gtable
     - r-knitr >=1.12
     - r-lattice
-
+    - r-plyr
+    - r-rlang
+    - r-scales
   run:
     - r-base
-    - r-ggplot2 >=2.2.0
+    - r-ggplot2 >=3.3.0
     - r-gridextra
     - r-gtable
     - r-knitr >=1.12
     - r-lattice
+    - r-plyr
+    - r-rlang
+    - r-scales
 
 test:
   commands:
-    - $R -e "library('lemon')"  # [not win]
+    - $R -e "library('lemon')"           # [not win]
     - "\"%R%\" -e \"library('lemon')\""  # [win]
 
 about:
@@ -49,13 +55,34 @@ about:
   summary: Functions for working with legends and axis lines of 'ggplot2', facets that repeat
     axis lines on all panels, and some 'knitr' extensions.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - cbrueffer
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
+
+# Package: lemon
+# Type: Package
+# Title: Freshing Up your 'ggplot2' Plots
+# URL: https://github.com/stefanedwards/lemon
+# BugReports: https://github.com/stefanedwards/lemon/issues
+# Version: 0.4.4
+# Date: 2020-04-01
+# Authors@R: c( person('Stefan McKinnon', 'Edwards', email='sme@iysik.com', comment=c(ORCID='0000-0002-4628-8148'), role=c('aut','ctb','cre')), person('Baptiste','Auguie', role='ctb', comment='For g_legend and grid_arrange_shared_legend'), person('Shaun','Jackman', role='ctb', comment='For grid_arrange_shared_legend'), person("Hadley", "Wickham", , "hadley@rstudio.com", "ctb", comment='ggplot2 functions'), person("Winston", "Chang", , "winston@rstudio.com", "ctb", comment='ggplot2 functions') )
+# Description: Functions for working with legends and axis lines of 'ggplot2', facets that repeat axis lines on all panels, and some 'knitr' extensions.
+# Depends: R (>= 3.1.0)
+# Imports: ggplot2 (>= 3.3.0), plyr, grid, gridExtra, gtable, knitr (>= 1.12), lattice, scales, rlang
+# License: GPL-3
+# Encoding: UTF-8
+# LazyData: true
+# RoxygenNote: 7.1.0
+# Collate: 'ggplot2.r' 'lemon-plot.r' 'axis-annotation.r' 'brackets.R' 'scale-view.r' 'scale-expansion.r' 'coord-cartesian.r' 'coord-flex.r' 'coord-capped.r' 'dot.r' 'facet-rep-lab.r' 'facet-wrap.r' 'geom-pointline.r' 'lemon_print.r' 'geom-siderange.r' 'grob_utils.r' 'gtable_show-.r' 'legends.r' 'lemon.r' 'scale-symmetric.r'
+# Suggests: rmarkdown, stringr, dplyr, testthat
+# VignetteBuilder: knitr
+# NeedsCompilation: no
+# Packaged: 2020-04-02 20:49:04 UTC; smhe
+# Author: Stefan McKinnon Edwards [aut, ctb, cre] (<https://orcid.org/0000-0002-4628-8148>), Baptiste Auguie [ctb] (For g_legend and grid_arrange_shared_legend), Shaun Jackman [ctb] (For grid_arrange_shared_legend), Hadley Wickham [ctb] (ggplot2 functions), Winston Chang [ctb] (ggplot2 functions)
+# Maintainer: Stefan McKinnon Edwards <sme@iysik.com>
+# Repository: CRAN
+# Date/Publication: 2020-04-03 16:00:18 UTC
