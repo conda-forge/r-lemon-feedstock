@@ -1,4 +1,4 @@
-{% set version = '0.4.4' %}
+{% set version = "0.4.5" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/lemon_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/lemon/lemon_{{ version }}.tar.gz
-  sha256: a56d5eeab805893dbfe00a3f7eefc93eca40ce305022db358f49267022c73055
+  sha256: c4d3d0dedf9d0147aa63813ec3277a40a0af0017f25aa13ced53350c5b9474f8
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -52,11 +52,10 @@ test:
 about:
   home: https://github.com/stefanedwards/lemon
   license: GPL-3
-  summary: Functions for working with legends and axis lines of 'ggplot2', facets that repeat
-    axis lines on all panels, and some 'knitr' extensions.
+  summary: Functions for working with legends and axis lines of 'ggplot2', facets that repeat axis lines on all panels, and some 'knitr' extensions.
   license_family: GPL3
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
