@@ -51,7 +51,7 @@ test:
 
 about:
   home: https://github.com/stefanedwards/lemon
-  license: GPL-3
+  license: GPL-3.0-only
   summary: Functions for working with legends and axis lines of 'ggplot2', facets that repeat axis lines on all panels, and some 'knitr' extensions.
   license_family: GPL3
   license_file:
