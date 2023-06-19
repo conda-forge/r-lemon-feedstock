@@ -1,11 +1,11 @@
-About r-lemon
-=============
+About r-lemon-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-lemon-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/stefanedwards/lemon
 
 Package license: GPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-lemon-feedstock/blob/main/LICENSE.txt)
 
 Summary: Functions for working with legends and axis lines of 'ggplot2', facets that repeat axis lines on all panels, and some 'knitr' extensions.
 
