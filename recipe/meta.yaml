@@ -1,4 +1,4 @@
-{% set version = "0.4.7" %}
+{% set version = "0.4.9" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/lemon_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/lemon/lemon_{{ version }}.tar.gz
-  sha256: d7088d72c45ebc3d9a6e22a4953cfbca6f7cd088fa1d3944f4574237d7b163e4
+  sha256: 074db3029241a71dd6f01f66bf3cc2efd63b15196bf9f7ae0e5f1b8d0ea94afa
 
 build:
   merge_build_host: true  # [win]
