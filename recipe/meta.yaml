@@ -1,4 +1,4 @@
-{% set version = "0.5.1" %}
+{% set version = "0.5.2" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/lemon_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/lemon/lemon_{{ version }}.tar.gz
-  sha256: dba80a6225fef3993445446efb2337e8e58b3ce25589f6d2f143f3cb87bd9453
+  sha256: 0b7bf82cb859d38c795bff2015179c9d48ac42a8f18aac4448e1dcc2170110fd
 
 build:
   number: 0
